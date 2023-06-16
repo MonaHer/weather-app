@@ -1,37 +1,28 @@
-export default function Form({onAddActivity}) {
-    function handleSubmit (event) {
+export default function Form({ onAddActivity }) {
+  function handleSubmit(event) {
+    event.preventDefault();
 
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const newActivity = Object.fromEntries(formData);
+    const form = event.target;
+    const formElements = form.elements;
 
-        onAddActivity(data);
-        event.target.reset();
-        event.target.elements.name.focus();
+    const data = {
+      name: formElements.name.value,
+      isForGoodWeather: formElements.goodWeather.checked,
+    };
+
+    onAddActivity(data);
+    form.reset();
+    formElements.name.focus();
   }
 
-
-    return( 
-        <form onSubmit={handleSubmit}>
-        <h2>Add New Activity</h2>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" name={name}/>
-        <label htmlFor="good-weather">Good-weather activity</label>
-        <input id="good-weather" type="checkbox" name="good-weather"/>
-        <button type="submit">Submit</button>
-        </form>
-        
-        )
-    }
-
-
-
-
-
-
-
-
-
-    )
-
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Add New Activity</h2>
+      <label htmlFor="name">Name</label>
+      <input id="name" type="text" name="name" />
+      <label htmlFor="goodWeather">Good-weather activity</label>
+      <input id="goodWeather" type="checkbox" name="goodWeather" />
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
