@@ -9,13 +9,11 @@ export default function App() {
   ]);
 
   function handleAddActivity(newActivity) {
-    console.log(newActivity);
     setActivity([...activities, { ...newActivity, id: uid() }]);
   }
   return (
     <div className="App">
-      <header></header>
-      <Form text="hallo sandeep" onAddActivity={handleAddActivity} />
+      <Form onAddActivity={handleAddActivity} />
     </div>
   );
 }
