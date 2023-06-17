@@ -7,7 +7,7 @@ export default function Form({ onAddActivity }) {
 
     const data = {
       name: formElements.name.value,
-      isForGoodWeather: formElements.goodWeather.checked,
+      ier: formElements.goodWeather.checked,
     };
 
     onAddActivity(data);

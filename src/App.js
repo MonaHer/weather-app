@@ -13,10 +13,21 @@ export default function App() {
   function handleAddActivity(newActivity) {
     setActivity([...activities, { ...newActivity, id: uid() }]);
   }
+
+  const isGoodWeather = true;
+  function handleFilterActivity() {
+    setActivity(
+      activities.filter(
+        //(activity) => activity.isForGoodWeather !== isGoodWeather
+        (activity) => activity.isForGoodWeather === isGoodWeather ? 
+      )
+    );
+  }
+
   return (
     <div className="App">
       <Form onAddActivity={handleAddActivity} />
-      <List activities={activities} />
+      <List activities={activities} onFilterActivity={handleFilterActivity} />
     </div>
   );
 }
