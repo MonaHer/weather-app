@@ -1,4 +1,4 @@
-export default function List({ activities }) {
+export default function List({ activities, onFilterActivitiy }) {
   return (
     <ul>
       {activities.map((activity) => (
